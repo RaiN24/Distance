@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Distance</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 column">
+            <div class="form-group">
+                <label for="exampleInputOrigins">origins</label><input type="text" id="origins" class="form-control"/>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputDestinations">destinations</label><input type="text" id="destinations" class="form-control"/>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputDistance">distance:</label>
+                <label for="exampleInputDistance" id="distance"></label>
+            </div>
+        </div> <button id="answer" type="submit" class="btn btn-default">Submit</button>
+    </div>
+</div>
+</div>
+<script src="https://code.jquery.com/jquery.js"></script>
+<script type="text/javascript">
+    $("#answer").click(function(){
+        // console.log($("https://maps.googleapis.com/maps/api/distancematrix/json?units=imperialkey=AIzaSyDHIdh10mg1corNw5R336jAkScXt8ozGLQ"
+        // 	+"&origins="+encodeURIComponent($("#origins").val())
+        // 	+"&destinations="+encodeURIComponent($("#destinations").val())));
+        var url="distance?origins="+$("#origins").val()+"&destinations="+$("#destinations").val();
+        $.get(url, function(result){
+            $("#distance").html(result)
+        });
+
+    });
+</script>
+</body>
+</html>
